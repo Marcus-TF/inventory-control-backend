@@ -1,0 +1,25 @@
+server:
+  port: ${SERVER_PORT:8090}
+  servlet:
+    context-path: /api/inventorycontrol
+    
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+
+service:
+  mock: false
+
+springdoc:
+  api-docs:
+    path: /api-documentation
+  swagger-ui:
+    path: /documentation
