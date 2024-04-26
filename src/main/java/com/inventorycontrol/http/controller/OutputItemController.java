@@ -49,7 +49,7 @@ public class OutputItemController implements IOutputItemController {
         outputItemService.delete(uuid);
         var messageError = new MessageError();
         messageError.setMessage("Item de saída deletado com sucesso!");
-        messageError.setStatusCode(200);
+        messageError.setStatusCode(Integer.valueOf(200));
         return ResponseEntity.ok().body(messageError);
     }
 }

@@ -51,7 +51,7 @@ public class ProductController implements IProductController {
         productService.delete(UUID.fromString(productId));
         var messageError = new MessageError();
         messageError.setMessage("Produto deletado com sucesso!");
-        messageError.setStatusCode(200);
+        messageError.setStatusCode(Integer.valueOf(200));
         return ResponseEntity.ok().body(messageError);
     }
 }

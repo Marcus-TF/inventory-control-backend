@@ -52,7 +52,7 @@ public class ProviderController implements IProviderController {
         providerService.delete(UUID.fromString(providerId));
         var messageError = new MessageError();
         messageError.setMessage("Fornecedor deletado com sucesso!");
-        messageError.setStatusCode(200);
+        messageError.setStatusCode(Integer.valueOf(200));
         return ResponseEntity.ok().body(messageError);
     }
 }

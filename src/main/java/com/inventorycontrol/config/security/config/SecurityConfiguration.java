@@ -23,14 +23,15 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf()
-                .ignoringRequestMatchers("/**")
+                .ignoringRequestMatchers("/swagger-ui/**", "/bus/v3/api-docs/**")
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/user/create", "/profile/create", "/auth/login").permitAll()
+                .requestMatchers(AUTH_WHITELIST).permitAll()
                 .and()
                 .authorizeHttpRequests()
-                .anyRequest().permitAll()
-//                .hasAuthority("ADMIN")
+                .anyRequest()
+                .hasAuthority("ADMIN")
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -40,4 +41,17 @@ public class SecurityConfiguration {
 
         return http.build();
     }
+
+    private static final String[] AUTH_WHITELIST = {
+            "/v2/api-docs",
+            "/swagger-resources",
+            "/swagger-resources/**",
+            "/configuration/ui",
+            "/configuration/security",
+            "/swagger-ui.html",
+            "/webjars/**",
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            "/api-documentation/**"
+    };
 }

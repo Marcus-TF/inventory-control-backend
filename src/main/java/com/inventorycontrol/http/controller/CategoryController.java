@@ -80,7 +80,7 @@ public class CategoryController implements ICategoryController {
         categoryServiceImpl.delete(categoryId);
         var messageError = new MessageError();
         messageError.setMessage("Categoria deletada com sucesso!");
-        messageError.setStatusCode(200);
+        messageError.setStatusCode(Integer.valueOf(200));
         return new ResponseEntity<>(messageError, HttpStatus.OK);
     }
 }

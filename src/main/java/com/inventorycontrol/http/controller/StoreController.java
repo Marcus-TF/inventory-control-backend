@@ -47,7 +47,7 @@ public class StoreController implements IStoreController {
         service.delete(uuid);
         var messageError = new MessageError();
         messageError.setMessage("Loja deletada com sucesso!");
-        messageError.setStatusCode(200);
+        messageError.setStatusCode(Integer.valueOf(200));
         return ResponseEntity.ok().body(messageError);
     }
 }

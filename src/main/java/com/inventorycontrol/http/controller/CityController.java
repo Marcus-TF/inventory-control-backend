@@ -50,7 +50,7 @@ public class CityController implements ICityController {
         cityServiceImpl.delete(UUID.fromString(clientId));
         var messageError = new MessageError();
         messageError.setMessage("Cidade deletada com sucesso!");
-        messageError.setStatusCode(200);
+        messageError.setStatusCode(Integer.valueOf(200));
         return ResponseEntity.ok().body(messageError);
     }
 }

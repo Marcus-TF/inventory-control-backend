@@ -50,7 +50,7 @@ public class UserController implements IUserController {
         userService.delete(uuid);
         var messageError = new MessageError();
         messageError.setMessage("Usuário deletado com sucesso!");
-        messageError.setStatusCode(200);
+        messageError.setStatusCode(Integer.valueOf(200));
         return ResponseEntity.ok().body(messageError);
     }
 }

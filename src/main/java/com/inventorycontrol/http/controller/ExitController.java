@@ -47,7 +47,7 @@ public class ExitController implements IExitController {
         exitService.delete(uuid);
         var messageError = new MessageError();
         messageError.setMessage("Saída deletada com sucesso!");
-        messageError.setStatusCode(200);
+        messageError.setStatusCode(Integer.valueOf(200));
         return ResponseEntity.ok().body(messageError);
     }
 }

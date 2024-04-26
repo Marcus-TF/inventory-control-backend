@@ -49,7 +49,7 @@ public class ShippingCompanyController implements IShippingCompanyController {
         service.delete(UUID.fromString(uuid));
         var messageError = new MessageError();
         messageError.setMessage("Transportadora deletada com sucesso!");
-        messageError.setStatusCode(200);
+        messageError.setStatusCode(Integer.valueOf(200));
         return ResponseEntity.ok().body(messageError);
     }
 }
