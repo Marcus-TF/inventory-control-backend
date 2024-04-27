@@ -26,7 +26,7 @@ public class SecurityConfiguration {
                 .ignoringRequestMatchers("/swagger-ui/**", "/bus/v3/api-docs/**")
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/user/create", "/profile/create", "/auth/login").permitAll()
+                .requestMatchers("/user/create", "/profile/create", "/auth/login", "/api/inventorycontrol").permitAll()
                 .requestMatchers(AUTH_WHITELIST).permitAll()
                 .and()
                 .authorizeHttpRequests()
