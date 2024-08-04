@@ -26,4 +26,8 @@ public class ProfileModel implements Serializable {
     private UUID profileId;
 
     private String profile;
+
+    public ProfileModel(String profile) {
+        this.profile = profile;
+    }
 }

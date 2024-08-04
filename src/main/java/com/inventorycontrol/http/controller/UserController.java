@@ -10,9 +10,15 @@ import com.inventorycontrol.service.impl.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.net.ssl.HttpsURLConnection;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 import java.util.UUID;
 
@@ -52,5 +58,32 @@ public class UserController implements IUserController {
         messageError.setMessage("Usuário deletado com sucesso!");
         messageError.setStatusCode(Integer.valueOf(200));
         return ResponseEntity.ok().body(messageError);
+    }
+
+    @GetMapping("/download")
+    public ResponseEntity<String> downloadFile() {
+        try {
+            String url = "https://fnet.bmfbovespa.com.br/fnet/publico/downloadDocumento?id=688738";
+
+            URL obj = new URL(url);
+
+            HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+
+            con.setRequestMethod("GET");
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            return ResponseEntity.ok().body(response.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -90,4 +90,24 @@ public class UserModel implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public UserModel(String login, String email) {
+        this.login = login;
+        this.email = email;
+    }
+
+    public UserModel(String login, String email, String password, String cpf) {
+        this.login = login;
+        this.email = email;
+        this.password = password;
+        this.cpf = cpf;
+    }
+
+    public UserModel(UUID id, String login, String email, String password, String cpf) {
+        this.userId = id;
+        this.login = login;
+        this.email = email;
+        this.password = password;
+        this.cpf = cpf;
+    }
 }
