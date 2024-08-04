@@ -42,7 +42,6 @@ public class UserServiceImplTest {
     public void testFindAll_ContainsData() {
         UserModel user = new UserModel("Marquin05TF", "zMarcust.st@gmail.com");
 
-        // Adicionando a lista
         List<UserModel> users = new ArrayList<>();
         users.add(user);
 
