@@ -20,7 +20,7 @@ name: Deploy Java project to Azure Function App
 
 on:
   push:
-    branches: ["main", "testes-unitarios"]
+    branches: ["testes-unitarios"]
 
 env:
   AZURE_FUNCTIONAPP_NAME: 'inventory-control'   # set this to your function app name on Azure
