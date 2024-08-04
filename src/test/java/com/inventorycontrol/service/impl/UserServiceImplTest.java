@@ -1,11 +1,9 @@
 package com.inventorycontrol.service.impl;
 
 import com.inventorycontrol.exception.DataAlreadyRegisteredException;
-import com.inventorycontrol.model.ProfileModel;
 import com.inventorycontrol.model.UserModel;
 import com.inventorycontrol.repository.UserRepository;
 import jakarta.persistence.NoResultException;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +13,10 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
