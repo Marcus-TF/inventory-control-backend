@@ -40,7 +40,6 @@ public class UserServiceImplTest {
 
     @Test
     public void testFindAll_ContainsData() {
-        // Criando um usuário simulado que será retornado pelo mock do repository
         UserModel user = new UserModel("Marquin05TF", "zMarcust.st@gmail.com");
 
         // Adicionando a lista
